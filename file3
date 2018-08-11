@@ -1,2 +1,6 @@
 test
+<<<<<<< HEAD
 master:update:update file3
+=======
+experimental:update file3
+>>>>>>> experomental
