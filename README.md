@@ -1,2 +1,2 @@
 # HaiZei
-This is my class notes and code.
+This is my notes and code in class.
