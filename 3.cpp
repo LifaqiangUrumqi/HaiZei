@@ -8,6 +8,8 @@
 #include<iostream>
 using namespace std;
 int main() {
+    int i;
+    i = 1;
     printf("I love China!");
     return 0;
 } 
