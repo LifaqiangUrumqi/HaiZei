@@ -18,12 +18,12 @@ elif [ "$1" == "-r" ] || [ "$1" == "-R" ]; then #当在delete.sh后输入-r或�
         for ((i=3; i<=$#; i++)); do 
             file=${!i} 
             cp -rf $file ~/.Trash
-            rm -rm $file 
+            rm -rf $file 
         done
     else  #如果-r或-R后面是文件或者目录，那么该文件或目录递归并询问是否覆盖同名文件到回收站，并以此递归并询问是否删除该文件或目录
         for ((i=2; i<=$#; i++)); do
             file=${!i}
-            cp -ri $file ~/.Trash/
+            cp -ri $file ~/.Trash
             rm -ri $file
         done
     fi
@@ -40,23 +40,22 @@ elif [ "$1" == "-f" ]; then #当在delete.sh后输入-f执行以下程序
             if [[ -d $file ]]; then
                 echo $0: $file: is a directory  
             elif [[ -f $file ]]; then 
-                cp -f $file ~/.Trash/ 
+                cp -f $file ~/.Trash
                 rm -f $file
-                echo f
             fi
         done 
     fi
 elif [ "$1" == "-rf" ] || [ "$1" == "-Rf" ] || [ "$1" == "-fr" ] || [ "$1" == "-fR" ]; then #当在delete.sh后输入-rf或-Rf或-fr或-fR执行以下程序
     for ((i=2; i<=$#; i++)); do #直接递归并强制覆盖的移到回收站，然后递归并强制删除
         file=${!i} 
-        cp -rf $file ~/.Trash/ 
+        cp -rf $file ~/.Trash
         rm -rf $file
     done
 else #如果delete.sh后面是文件或者目录，那么将该文件询问是否覆盖同名文件到回收站，并且询问是否删除该文件，但是如果是目录就执行失败
     for ((i=1; i<=$#; i++)); do 
         file=${!i}
-        if [ -f $file ]; then 
-            cp -i $file ~/.Trash/ 
+        if [ -f $file ]; then
+            cp -i $file ~/.Trash
             rm -i $file 
         elif [ -d $file ]; then
             echo $0: $file: is a directory
