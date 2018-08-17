@@ -1,14 +1,12 @@
 #########################################################################
-# File Name: g.sh
+# File Name: /Users/lifaqiang/gitall.sh
 # Author: Lifaqiang
 # mail: 576245059@qq.com
-# Created Time: 五  8/17 23:55:49 2018
+# Created Time: 六  8/18 00:13:29 2018
 #########################################################################
 
 #!/bin/bash
-for ((i = 1; i <= $#; i++)); do
-    git add $1
-    git commit -m "I commit $i"
-    git push -u origin master
-done
-    
+git add *
+git commit -m "I commit a lot of files or directories."
+git push -u origin master 
+
