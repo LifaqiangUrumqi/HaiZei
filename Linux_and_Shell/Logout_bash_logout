@@ -1,0 +1,8 @@
+TIMESTRUMP2=`date -u +"%s"`
+TIME=$(($TIMESTRUMP2 - $TIMESTRUMP))
+TIME_NOW=`date -u +"%Y-%m-%d %H:%M:%S"`
+USER_NOW=`whoami`
+TIME_NOW2=`date -u +"%H:%M:%S"`
+
+IP=`ifconfig eth0 | grep "inet " | awk '{print $2}'`
+echo "$TIME_NOW $USER_NOW $SSH_TTY $IP "$TIME"s LOGOUT" >> /home/lifaqiang/log/mylog.log
