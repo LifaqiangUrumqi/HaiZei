@@ -13,7 +13,7 @@ else
     PreAvg=100
 fi
 
-Space=`free -m | head -n 2 | tail -n 1 | awk '{printf("%s %s", $2, $4)}'`
+Space=`free -m | head -n 2 | tail -n 1 | awk '{printf("%s %s", $2, $2 - $3)}'`
 Space=(`echo $Space`)
 Occupy=`echo "scale=1;(${Space[0]}-${Space[1]})*100/${Space[0]}" | bc`
 NowAvg=`echo "scale=1; 0.3*${PreAvg}+0.7*${Occupy}" | bc`
